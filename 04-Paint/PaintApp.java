@@ -34,6 +34,8 @@ class PaintFrame extends JFrame {
 class Rect {
     int x, y;
     int w, h;
+    int linhacor;
+    int fundocor;
 
     Rect (int x, int y, int w, int h) {
         this.x = x;
