@@ -24,9 +24,9 @@ class PaintFrame extends JFrame {
         );
         this.setTitle("Painting Figures");
         this.setSize(500, 500);
-        this.r1 = new Rect(50,200, 100,30);
-        this.r2 = new Rect(200,200, 100,30);
-        this.r3 = new Rect(350,200, 100,30);
+        this.r1 = new Rect(50,200, 100,30, Color.green, Color.blue);
+        this.r2 = new Rect(200,200, 100,30, Color.red, Color.yellow);
+        this.r3 = new Rect(350,200, 100,30, Color.blue, Color.black);
     }
 
     public void paint (Graphics g) {
@@ -40,8 +40,8 @@ class PaintFrame extends JFrame {
 class Rect {
     int x, y;
     int w, h;
-   Color background;
-   Color line;
+    Color background;
+    Color line;
     
     Rect (int x, int y, int w, int h, Color background, Color line) {
         this.x = x;
@@ -51,14 +51,17 @@ class Rect {
         this.background = background;
         this.line = line;
     }
+    
 
     void print () {
-        System.out.format("Retangulo de tamanho (%d,%d) na posicao (%d,%d).\n",
-            this.w, this.h, this.x, this.y);
+        System.out.format("Retangulo de tamanho (%d,%d) na posicao (%d,%d).\n",this.w, this.h, this.x, this.y);
     }
 
     void paint (Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        g2d.drawRect(this.x,this.y, this.w,this.h);
+        g2d.setColor(this.background);
+        g2d.fillRect(this.x, this.y, this.w, this.h);
+        g2d.setColor(this.line);
+        g2d.drawRect(this.x, this.y, this.w, this.h);
     }
 }
