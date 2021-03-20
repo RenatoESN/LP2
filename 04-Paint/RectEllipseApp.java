@@ -12,8 +12,9 @@ class RectEllipseApp {
 }
 
 class RectEllipseFrame extends JFrame {
-    Rect r1;
     Ellipse e1;
+    Ellipse e2;
+    Ellipse e3;
 
     RectEllipseFrame () {
         this.addWindowListener (
@@ -24,36 +25,17 @@ class RectEllipseFrame extends JFrame {
             }
         );
         this.setTitle("Rect + Ellipse");
-        this.setSize(350, 350);
-        this.r1 = new Rect(50,50, 100,30);
+        this.setSize(500, 500);
         this.e1 = new Ellipse(50,100, 100,30);
+        this.e2 = new Ellipse(250,300, 90,80);
+        this.e3 = new Ellipse(200,100, 150,130);
     }
 
     public void paint (Graphics g) {
         super.paint(g);
-        this.r1.paint(g);
         this.e1.paint(g);
-    }
-}
-
-class Rect {
-    int x, y;
-    int w, h;
-
-    Rect (int x, int y, int w, int h) {
-        this.x = x;
-        this.y = y;
-        this.w = w;
-        this.h = h;
-    }
-
-    void print () {
-        System.out.format("Retangulo de tamanho (%d,%d) na posicao (%d,%d).\n",
-            this.w, this.h, this.x, this.y);
-    }
-
-    void paint (Graphics g) {
-        g.drawRect(this.x,this.y, this.w,this.h);
+        this.e2.paint(g);
+        this.e3.paint(g);
     }
 }
 
