@@ -14,6 +14,7 @@ class PackApp {
 class PackFrame extends JFrame {
     Rect r1;
     Ellipse e1;
+    Hexagon h1;
 
     PackFrame () {
         this.addWindowListener (
@@ -24,14 +25,16 @@ class PackFrame extends JFrame {
             }
         );
         this.setTitle("Java Packages");
-        this.setSize(350, 350);
+        this.setSize(1920, 1080);
         this.r1 = new Rect(50,50, 100,30);
         this.e1 = new Ellipse(50,100, 100,30);
+        this.h1 = new Hexagon(50, 200, 200, 250);
     }
 
     public void paint (Graphics g) {
         super.paint(g);
         this.r1.paint(g);
         this.e1.paint(g);
+        this.h1.paint(g);
     }
 }
