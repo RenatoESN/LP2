@@ -2,7 +2,7 @@ package figures;
 
 import java.awt.*;
 
-public class Hexagon {
+public class Hexagon extends Figure{
 	private int x, y, w, h;
 	private Polygon p = new Polygon();
 	
