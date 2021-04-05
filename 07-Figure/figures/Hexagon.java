@@ -4,13 +4,16 @@ import java.awt.*;
 
 public class Hexagon extends Figure{
 	private int x, y, w, h;
+    private Color line, background;
 	private Polygon p = new Polygon();
 	
-	public Hexagon (int x, int y, int w, int h) {
+	public Hexagon (int x, int y, int w, int h, Color line, Color background) {
         this.x = x;
         this.y = y;
         this.w = w;
         this.h = h;
+        this.line = line;
+        this.background = background;
         
         p.npoints = 5;
         p.xpoints[0] = (int) (x + w*0.25);
@@ -35,6 +38,9 @@ public class Hexagon extends Figure{
 	
 	public void paint (Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
+        g2d.setColor(line);
         g2d.drawPolygon(p.xpoints, p.ypoints, p.npoints);
+        g2d.setColor(background);
+        g2d.fillPolygon(p);
     }
 }
