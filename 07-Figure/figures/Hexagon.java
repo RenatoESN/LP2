@@ -31,7 +31,7 @@ public class Hexagon extends Figure{
         p.addPoint(x,(int) (y + h*0.40));
     }
 	
-	private void print () {
+	public void print () {
         System.out.format("Hexagono de tamanho (%d,%d) na posicao (%d,%d).\n",
             this.w, this.h, this.x, this.y);
     }

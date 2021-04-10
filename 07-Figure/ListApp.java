@@ -38,8 +38,6 @@ class ListFrame extends JFrame {
                         figs.add(r);
                     } else if (evt.getKeyChar() == 'e') {
                         figs.add(new Ellipse(x,y, w,h));
-                    } else if (evt.getKeyChar() == 'h') {
-                        figs.add(new Hexagon(x,y, w,h));
                     }
                     repaint();
                 }
@@ -47,7 +45,7 @@ class ListFrame extends JFrame {
         );
 
         this.setTitle("Lista de Figuras");
-        this.setSize(500, 500);
+        this.setSize(350, 350);
     }
 
     public void paint (Graphics g) {
