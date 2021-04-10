@@ -7,15 +7,7 @@ public class Rect extends Figure {
     int w, h;
 
     public Rect (int x, int y, int w, int h) {
-        this.x = x;
-        this.y = y;
-        this.w = w;
-        this.h = h;
-    }
-
-    public void print () {
-        System.out.format("Retangulo de tamanho (%d,%d) na posicao (%d,%d).\n",
-            this.w, this.h, this.x, this.y);
+        super(x, y, w, h);
     }
 
     public void paint (Graphics g) {
