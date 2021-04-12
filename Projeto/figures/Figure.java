@@ -14,5 +14,7 @@ public abstract class Figure {
         this.h = h;
     }
 
+    public abstract void print();
+
     public abstract void paint (Graphics g);
 }
