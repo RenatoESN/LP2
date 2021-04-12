@@ -7,7 +7,11 @@ public class Line extends Figure {
     int w, h;
 
     public Line (int x, int y, int w, int h){
-        super(x,y,w,h);
+        super(x, y, w, h);
+        this.x = x; 
+        this.y = y;
+        this.w = w;
+        this.h = h;
     }
 
     public void print(){
@@ -19,3 +23,4 @@ public class Line extends Figure {
         g2d.drawLine(this.x, this.y, this.w, this.h);
     }
 }
+/* Compilar: javac Line.java Figure.java */

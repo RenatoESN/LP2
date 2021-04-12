@@ -10,6 +10,10 @@ public class Ellipse extends Figure{
 
     public Ellipse (int x, int y, int w, int h){
         super(x, y, w, h);
+        this.x = x; 
+        this.y = y;
+        this.w = w;
+        this.h = h;
     }
 
     public void print(){
@@ -21,3 +25,4 @@ public class Ellipse extends Figure{
     }
     
 }
+/* Compilar: javac Ellipse.java Figure.java */
