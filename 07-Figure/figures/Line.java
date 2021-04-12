@@ -12,7 +12,7 @@ public class Line extends Figure {
 
     public void print () {
         System.out.format("Linha na posicao (%d,%d).\n",
-            this.w, this.h, this.x, this.y);
+            this.x, this.y);
     }
 
     public void paint (Graphics g){
