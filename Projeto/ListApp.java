@@ -16,6 +16,7 @@ class ListApp {
 class ListFrame extends JFrame {
     ArrayList<Figure> figs = new ArrayList<Figure>();
     Random rand = new Random();
+    /*Criar array de cores*/
 
     ListFrame () {
         this.addWindowListener (
@@ -45,6 +46,7 @@ class ListFrame extends JFrame {
                 }
             }
         );
+
 
         this.setTitle("Lista de Figuras");
         this.setSize(350, 350);
