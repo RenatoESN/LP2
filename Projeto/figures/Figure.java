@@ -3,8 +3,8 @@ package figures;
 import java.awt.*;
 
 public abstract class Figure {
-    int x, y;
-    int w, h;
+    public int x, y;
+    public int w, h;
 
     public Figure (int x, int y, int w, int h){
         this.x = x;
