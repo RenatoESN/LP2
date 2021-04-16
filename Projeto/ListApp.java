@@ -16,8 +16,7 @@ class ListApp {
 class ListFrame extends JFrame {
     ArrayList<Figure> figs = new ArrayList<Figure>();
     Random rand = new Random();
-    /*Criar array de cores*/
-
+    Color cores[] = {Color.BLUE, Color.GREEN, Color.ORANGE, Color.PINK, Color.RED, Color.YELLOW, Color.BLACK};
     ListFrame () {
         this.addWindowListener (
             new WindowAdapter() {
@@ -34,15 +33,17 @@ class ListFrame extends JFrame {
                     int y = rand.nextInt(350);
                     int w = rand.nextInt(50);
                     int h = rand.nextInt(50);
+                    int line = rand.nextInt(7);
+                    int background = rand.nextInt(7);
                     if (evt.getKeyChar() == 'r') {
-                        Rect r = new Rect(x,y, w,h);
+                        Rect r = new Rect(x,y, w,h, cores[line], cores[background]);
                         figs.add(r);
                     } else if (evt.getKeyChar() == 'e') {
-                        figs.add(new Ellipse(x,y, w,h));
+                        figs.add(new Ellipse(x,y, w,h, cores[line], cores[background]));
                     } else if (evt.getKeyChar() == 'l') {
-                        figs.add(new Line(x,y, w,h));
+                        figs.add(new Line(x,y, w,h, cores[line], cores[background]));
                     }else if (evt.getKeyChar() == 't') {
-                        figs.add(new Triangle(x,y, w,h));
+                        figs.add(new Triangle(x,y, w,h, cores[line], cores[background]));
                     }
                     repaint();
                 }

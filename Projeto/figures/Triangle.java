@@ -5,14 +5,17 @@ import java.awt.*;
 public class Triangle extends Figure{
     int x, y;
     int w, h;
+    Color line, background;
     Polygon triangulo = new Polygon();
 
-    public Triangle (int x, int y, int w, int h){
-        super(x, y, w, h);
+    public Triangle (int x, int y, int w, int h, Color line, Color background){
+        super(x, y, w, h, line, background);
         this.x = x;
         this.y = y;
         this.w = w;
         this.h = 0;
+        this.line = line;
+        this.background = background;
 
         triangulo.npoints = 3;
         triangulo.xpoints[0] = x;
@@ -31,6 +34,9 @@ public class Triangle extends Figure{
     
     public void paint(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
+        g2d.setColor(this.line);
         g2d.drawPolygon(triangulo.xpoints, triangulo.ypoints, triangulo.npoints);
+        g2d.setColor(this.background);
+        g2d.fill(triangulo);
     }
 }
