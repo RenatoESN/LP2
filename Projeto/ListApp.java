@@ -92,7 +92,7 @@ class ListFrame extends JFrame{
                 System.out.format("Selecionado " + focus + "\n");
             }
         }
-        repaint();
+        //repaint();
     }
 
     public void paint (Graphics g) {
