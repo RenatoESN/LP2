@@ -39,4 +39,5 @@ public class Triangle extends Figure{
         g2d.setColor(this.background);
         g2d.fill(triangulo);
     }
+
 }

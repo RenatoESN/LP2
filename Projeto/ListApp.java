@@ -1,10 +1,12 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 import figures.*;
+//import jdk.internal.org.jline.terminal.MouseEvent;
 
 class ListApp {
     public static void main (String[] args) {
@@ -13,10 +15,16 @@ class ListApp {
     }
 }
 
-class ListFrame extends JFrame {
+class ListFrame extends JFrame{
     ArrayList<Figure> figs = new ArrayList<Figure>();
     Random rand = new Random();
     Color cores[] = {Color.BLUE, Color.GREEN, Color.ORANGE, Color.PINK, Color.RED, Color.YELLOW, Color.BLACK};
+
+    /* Variaveis para Mouse Event */
+    private int posx, posy;
+    private Figure focus = null;
+    /* FIM */
+
     ListFrame () {
         this.addWindowListener (
             new WindowAdapter() {
@@ -50,8 +58,41 @@ class ListFrame extends JFrame {
             }
         );
 
+        /* Mouse Events */
+       this.addMouseListener(new MouseAdapter(){
+                public void mousePressed(MouseEvent e){
+                    seleciona(e.getX(), e.getY());
+                    System.out.format("Mouse pressed " + focus.getx() + "e " + focus.gety() + "\n");
+                    //repaint();
+                }
+            }
+        );
+        this.addMouseMotionListener(new MouseMotionAdapter(){
+            public void mouseMoved(MouseEvent e){
+                int posx = e.getX();
+                int posy = e.getY();
+                System.out.println("Mouse moved");
+                //repaint();
+            }
+            public void mouseDragged(MouseEvent e){
+                focus.drag(e.getX(), e.getY());
+                System.out.format("Mouse dragged " + focus.getx() + "e " + focus.gety() + "\n");
+                repaint();
+            }
+        });
+        /* FIM */
+
         this.setTitle("Lista de Figuras");
-        this.setSize(350, 350);
+        this.setSize(500, 500);
+    }
+    public void seleciona(int x, int y){
+        for (Figure fig: this.figs) {
+            if (fig.getx() <= x && x <= fig.getx() + fig.getw() && fig.gety() <= y && y <= fig.gety() + fig.geth()){
+                focus  = fig;
+                System.out.format("Selecionado " + focus + "\n");
+            }
+        }
+        repaint();
     }
 
     public void paint (Graphics g) {

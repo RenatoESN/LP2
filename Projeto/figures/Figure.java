@@ -3,8 +3,8 @@ package figures;
 import java.awt.*;
 
 public abstract class Figure {
-    public int x, y;
-    public int w, h;
+    int x, y;
+    int w, h;
     Color line, background;
 
     public Figure (int x, int y, int w, int h, Color line, Color background){
@@ -19,5 +19,26 @@ public abstract class Figure {
     public abstract void print();
 
     public abstract void paint(Graphics g);
+
+    public int getx(){
+        return x;
+    }
+
+    public int gety(){
+        return y;
+    }
     
+    public int getw(){
+        return w;
+    }
+
+    public int geth(){
+        return h;
+    }
+    
+    public void drag(int novax, int novay){
+        this.x = novax;
+        this.y = novay;
+    }
+
 }

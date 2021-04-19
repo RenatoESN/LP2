@@ -26,5 +26,6 @@ public class Line extends Figure {
         g2d.setColor(this.line);
         g2d.drawLine(this.x, this.y, this.w, this.h);
     }
+
 }
 /* Compilar: javac Line.java Figure.java */

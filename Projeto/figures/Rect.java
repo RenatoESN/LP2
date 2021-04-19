@@ -28,5 +28,6 @@ public class Rect extends Figure{
         g2d.setColor(this.background);
         g2d.fillRect(this.x, this.y, this.w, this.h);
     }
+
 }
 /* Compilar: javac Rect.java Figure.java */
