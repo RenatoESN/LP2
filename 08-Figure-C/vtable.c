@@ -88,23 +88,58 @@ Ellipse* ellipse_new (int x, int y, int w, int h) {
 
 ///////////////////////////////////////////////////////////////////////////////
 
+typedef struct {
+    Figure super;
+    int w, h;
+} Line;
+
+void line_print (Rect* this) {
+    Figure* sup = (Figure*) this;
+    printf("Linha de tamanho (%d,%d) na posicao (%d,%d) e area %d.\n",
+           this->w, this->h, sup->x, sup->y, sup->vtable->area(sup));
+}
+
+int line_area (Rect* this) {
+    Figure* sup = (Figure*) this;
+    return this->w * this->h;
+}
+
+Figure_vtable line_vtable = {
+    (Figure_Print) line_print,
+    (Figure_Area)  line_area
+};
+
+Line* line_new (int x, int y, int w, int h) {
+    Line* this = malloc(sizeof(Line));
+    Figure* sup = (Figure*) this;
+    sup->vtable = &line_vtable;
+    sup->x = x;
+    sup->y = y;
+    this->w = w;
+    this->h = h;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
 void main (void) {
-    Figure* figs[4] = {
+    Figure* figs[6] = {
         (Figure*) rect_new(10,10,100,100),
         (Figure*) ellipse_new(40,10,140,300),
+        (Figure*) line_new(50,50,100,300),
         (Figure*) rect_new(10,10,100,100),
-        (Figure*) ellipse_new(210,110,305,130)
+        (Figure*) ellipse_new(210,110,305,130),
+        (Figure*) line_new(160,100,300,100)
     };
 
     ///
 
-    for (int i=0; i<4; i++) {
+    for (int i=0; i<6; i++) {
         figs[i]->vtable->print(figs[i]);
     }
 
     ///
 
-    for (int i=0; i<4; i++) {
+    for (int i=0; i<6; i++) {
         free(figs[i]);
     }
 }
