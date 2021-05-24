@@ -5,9 +5,9 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Ellipse2D.Double;
 
 public class Ellipse extends Figure{
-    int x, y;
-    int w, h;
-    Color line, background;
+    private int x, y;
+    private int w, h;
+    protected Color line, background;
     Ellipse2D poly;
 
     public Ellipse (int x, int y, int w, int h, Color line, Color background){

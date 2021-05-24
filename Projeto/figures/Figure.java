@@ -4,9 +4,9 @@ import ivisible.IVisible;
 import java.awt.*;
 
 public abstract class Figure implements IVisible{
-    int x, y;
-    int w, h;
-    Color line, background;
+    private int x, y;
+    private int w, h;
+    protected Color line, background;
 
     public Figure (int x, int y, int w, int h, Color line, Color background){
         this.x = x;
@@ -38,11 +38,12 @@ public abstract class Figure implements IVisible{
     }
     
     public void drag(int novax, int novay){
-        this.x = novax;
-        this.y = novay;
+        this.x += novax;
+        this.y += novay;
     }
     public boolean clicked (int x, int y) {
         return (this.x<=x && x<=this.x+this.w && this.y<=y && y<=this.y+this.h);
     }
 
 }
+//Compliar usando javac Figure.java C:\Users\renat\OneDrive\Documentos\Projetos\LP2\Projeto\ivisible\IVisible.java

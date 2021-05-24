@@ -3,9 +3,9 @@ package figures;
 import java.awt.*;
 
 public class Rect extends Figure{
-    int x, y;
-    int w, h;
-    Color line, background;
+    private int x, y;
+    private int w, h;
+    protected Color line, background;
 
     public Rect (int x, int y, int w, int h, Color line, Color background){
         super(x, y, w, h, line, background);

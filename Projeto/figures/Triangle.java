@@ -3,9 +3,9 @@ package figures;
 import java.awt.*;
 
 public class Triangle extends Figure{
-    int x, y;
-    int w, h;
-    Color line, background;
+    private int x, y;
+    private int w, h;
+    protected Color line, background;
     Polygon triangulo = new Polygon();
 
     public Triangle (int x, int y, int w, int h, Color line, Color background){
@@ -13,7 +13,7 @@ public class Triangle extends Figure{
         this.x = x;
         this.y = y;
         this.w = w;
-        this.h = 0;
+        this.h = h;
         this.line = line;
         this.background = background;
 
